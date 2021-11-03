@@ -35,6 +35,7 @@ navigator.mediaDevices.getUserMedia({
     const remoteVideo = document.querySelector('#remoteVideo')
     call.on('stream', userVideoStream => {
       addVideoStream(remoteVideo, userVideoStream)
+      socket.emit('controllConnect')
     })
   })
 

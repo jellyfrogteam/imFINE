@@ -38,8 +38,10 @@ io.on('connection', async socket => {
 
   socket.on('join-room', async (roomId, userId) => {
     socket.join(roomId)
-    await roomOpenAndClose(0)
     socket.broadcast.to(roomId).emit('user-connected', userId)
+    socket.on('controllConnect', async () => {
+      await roomOpenAndClose(0)
+    })
 
     socket.on('disconnect', async () => {
       await roomOpenAndClose(0)
@@ -60,8 +62,12 @@ async function roomOpenAndClose(flag) {
     } catch (error) {
       console.log(error)
     }
-  } else if(flag == 0){ //roomDelete
-    
+  } else if (flag == 0) { //roomDelete
+    await db.collection("rooms").doc(`${roomnameID}`).delete().then(() => {
+      console.log("Document successfully deleted!");
+    }).catch((error) => {
+      console.error("Error removing document: ", error);
+    });
   }
 }
 
