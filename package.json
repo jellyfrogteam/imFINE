@@ -1,0 +1,24 @@
+{
+  "name": "imFINE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.0",
+    "ngrok": "^4.2.2",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
