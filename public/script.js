@@ -13,7 +13,6 @@ const localVideo = document.querySelector('#localVideo')
 
 
 
-
 /** object to store connected users
  * 연결된 사용자를 저장할 개체
  * @example

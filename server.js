@@ -31,7 +31,6 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-
 io.on('connection', async socket => {
 
   await roomOpenAndClose(1)
